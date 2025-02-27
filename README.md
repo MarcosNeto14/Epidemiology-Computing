@@ -1,69 +1,72 @@
-Simulação do Modelo SIR em Grade
-Este projeto implementa uma simulação do modelo epidemiológico SIR (Suscetível-Infectado-Recuperado) em uma grade 2D usando Python. A simulação mostra visualmente como uma doença se espalha através de uma população.
+# Simulação do Modelo SIR em Grade
 
-Descrição
-O modelo SIR divide a população em três grupos:
+Este projeto realiza uma simulação visual de como uma doença se espalha em uma população, utilizando um modelo simplificado baseado em uma grade 2D. A simulação é inspirada no modelo SIR (Suscetível-Infectado-Recuperado), que divide a população em três categorias principais, permitindo observar a dinâmica de contágio e recuperação.
 
-Suscetível (S): Indivíduos que podem ser infectados.
+## Sobre o modelo
 
-Infectado (I): Indivíduos que têm a doença e podem transmiti-la.
+O modelo SIR é amplamente utilizado em epidemiologia para entender como doenças infecciosas se propagam. Nesta simulação, a população é representada por uma grade, onde cada célula pode estar em um dos três estados:
 
-Recuperado (R): Indivíduos que se recuperaram e estão imunes.
+- **Suscetível (S)**: Indivíduos que ainda não foram infectados e podem contrair a doença.
+- **Infectado (I)**: Indivíduos que estão infectados e podem transmitir a doença para os suscetíveis.
+- **Recuperado (R)**: Indivíduos que se recuperaram da doença e estão imunes.
 
-Parâmetros da Simulação
-tamanho_grade: Tamanho da grade (50x50).
+## Parâmetros da Simulação
 
-taxa_infeccao: Probabilidade de um indivíduo suscetível ser infectado por um vizinho infectado (0.3).
+- `grid_size`: 50x50 células.
+- `tau`: Probabilidade de um suscetível ser infectado por um vizinho infectado (0.3).
+- `gamma`: Probabilidade de um infectado se recuperar (0.1).
+- `steps`: 100 iterações da simulação.
 
-taxa_recuperacao: Probabilidade de um indivíduo infectado se recuperar (0.1).
+## Visualização
 
-passos: Número de passos da simulação (100).
+A simulação utiliza um mapa de cores para representar os estados das células:
 
-Visualização
-A simulação usa um mapa de cores 'viridis':
+- Azul escuro: Suscetível (0)
+- Verde/Amarelo: Infectado (1)
+- Amarelo claro: Recuperado (2)
 
-Azul escuro: Suscetível (0).
+A animação mostra a evolução da doença ao longo do tempo, permitindo observar padrões de propagação e recuperação.
 
-Verde/Amarelo: Infectado (1).
+## Requisitos
 
-Amarelo claro: Recuperado (2).
+- Python 3.7+
+- NumPy
+- Matplotlib
 
-Requisitos
-Python 3.7+
+## Instalação
 
-NumPy
+1. Clonar o repositório
+2. Instalar as dependências:
 
-Matplotlib
-
-Instalação
-Clone este repositório:
-
-bash
-Copy
-git clone https://github.com/MarcosNeto14/Epidemiology-Computing
-Instale as dependências:
-
-bash
-Copy
+```bash
 pip install numpy matplotlib
-Uso
-Execute o script principal para iniciar a simulação:
+```
 
-bash
-Copy
+## Uso
+
+```bash
 python main.py
-Como Funciona
-A simulação começa com uma grade de 50x50 células, onde a maioria está suscetível (azul).
+```
 
-Algumas células são inicialmente infectadas (verde/amarelo).
+## Funcionamento da Simulação
 
-A cada passo:
+1. A grade é criada com a maioria das células no estado Suscetível.Algumas células são infectadas aleatoriamente no início.
 
-Células suscetíveis podem ser infectadas por vizinhos infectados.
+2. A cada iteração:
+   Células suscetíveis podem ser infectadas por vizinhos infectados, dependendo da taxa de infecção.
 
-Células infectadas podem se recuperar.
+Células infectadas podem se recuperar, dependendo da taxa de recuperação.
 
-A simulação continua por 100 passos, mostrando a evolução da epidemia.
+A grade é atualizada e a animação é gerada.
 
-Resultados
-A simulação produz uma animação que mostra a propagação da doença ao longo do tempo. A grade é atualizada a cada passo, permitindo visualizar como a infecção se espalha e como os indivíduos se recuperam.
+3. A simulação produz uma animação que mostra a propagação da doença e a evolução dos estados das células ao longo do tempo.
+
+## Resultados
+
+A animação gerada permite visualizar:
+
+A propagação inicial da doença.
+
+O pico de infecções.
+
+A recuperação gradual da população.
